@@ -1,0 +1,36 @@
+main {
+    margin-top: 4.678em;
+}
+
+.row.metric {
+    padding: 0;
+    border: none;
+}
+
+.row.metric .col {
+    margin: 0;
+    padding: 0;
+}
+
+.metric {
+    border: 1px solid #eee;
+    padding: 0.657em;
+}
+
+.metric label {
+    font-size: 1.167em;
+    margin-bottom: .367em;
+}
+
+.metric .value {
+    font-size: 2.48em;
+    margin-bottom: .367em;
+}
+
+
+
+.fg-success { color: rgba(var(--bs-success-rgb)); }
+.fg-info { color: rgba(var(--bs-info-rgb)); }
+
+.fg-warning { color: rgba(var(--bs-warning-rgb)); }
+.fg-danger { color: rgba(var(--bs-danger-rgb)); }

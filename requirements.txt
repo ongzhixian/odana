@@ -1,0 +1,8 @@
+# -e .
+Flask==2.0.1
+#behave
+#boto3
+##coverage
+#cryptography
+#dynamodb-encryption-sdk
+#requests
