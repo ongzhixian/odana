@@ -18,6 +18,14 @@ def hello():
     # return view()
     return view()
 
+@app.route('/monitoring_dashboard/')
+def monitoring_dashboard():
+    return view()
+
+
+@app.route('/game/')
+def game():
+    return view()
 
 # @app.route('/hello/')
 # @app.route('/hello/<name>')

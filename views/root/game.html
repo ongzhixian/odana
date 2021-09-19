@@ -1,0 +1,83 @@
+{% extends "_layouts/_bootstrap_default.html" %}
+
+{% block page_description %}monitoring-dashboard{% endblock %}
+
+{% block page_author %}Zhixian, Ong{% endblock %}
+
+{% block title %}game{% endblock %}
+
+{% block scripts %}
+<!-- <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/phaser@3.15.1/dist/phaser-arcade-physics.min.js"></script>
+<script type="text/javascript">
+    var config = {
+        type: Phaser.AUTO,  // Which renderer to use
+        width: 800,     // Canvas width in pixels
+        height: 600,    // Canvas height in pixels
+        parent: "phaser-ui",
+        physics: {
+            default: 'arcade',
+            arcade: {
+                gravity: { y: 200 }
+            }
+        },
+        scene: {
+            preload: preload,
+            create: create,
+            update: update
+        }
+    };
+
+    var game = new Phaser.Game(config);
+
+    function preload ()
+    {
+        // Runs once, loads up assets like images and audio
+
+        this.load.setBaseURL('http://labs.phaser.io');
+
+        this.load.image('sky', 'assets/skies/space3.png');
+        this.load.image('logo', 'assets/sprites/phaser3-logo.png');
+        this.load.image('red', 'assets/particles/red.png');
+    }
+
+    function create ()
+    {
+        // Runs once, after all assets in preload are loaded
+
+        this.add.image(400, 300, 'sky');
+
+        var particles = this.add.particles('red');
+
+        var emitter = particles.createEmitter({
+            speed: 100,
+            scale: { start: 1, end: 0 },
+            blendMode: 'ADD'
+        });
+
+        var logo = this.physics.add.image(400, 100, 'logo');
+
+        logo.setVelocity(100, 200);
+        logo.setBounce(1, 1);
+        logo.setCollideWorldBounds(true);
+
+        emitter.startFollow(logo);
+    }
+
+    function update(time, delta) {
+        // Runs once per frame for the duration of the scene
+    }
+</script>
+{% endblock %}
+
+{% block content %}
+<main class="phaser-game">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10 text-center" id="phaser-ui"></div>
+            <div class="col-sm-1"></div>
+        </div>
+    </div>
+</main>
+{% endblock %}

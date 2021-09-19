@@ -2,6 +2,11 @@ main {
     margin-top: 4.678em;
 }
 
+main.phaser-game {
+    margin-top: 4.678em;
+}
+
+
 .row.metric {
     padding: 0;
     border: none;
